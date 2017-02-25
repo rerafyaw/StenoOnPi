@@ -1,0 +1,4 @@
+1) sudo apt-get install arduino (last compatible ARM-based IDE)
+2) connect Uno R3 or Leonardo
+3) OpenSteno should be preloaded with compiled .ino code
+4) Steno should be able to write directly to PC

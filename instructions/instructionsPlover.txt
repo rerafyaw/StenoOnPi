@@ -1,0 +1,46 @@
+# Compilation by Anderson Ang (@rerafyaw, on Github), 2017
+# May release a bash script for entirely new users to ARM-based Linux (debian),
+# and want to get Plover running ASAP.
+
+List of required prerequisite packages:
+1) Python 2.7.X and above (with pip support)
+2) wxPython, a GUI API alternative to Tkinter
+3) wmctrl
+4) Cython-based HIDAPI
+5) libusb and libudev (together with python 2.7)
+6) setuptools (copackaged with pip)
+
+Actual package:
+1) plover-3.1.0.whl (whl file)
+
+- First, make sure wmctrl is installed by executing:
+	1) sudo apt-get install wmctrl
+- If Python 2.X is NOT installed, execute the following:
+	1) sudo apt-get install python-dev
+- To get wxPython, run the following:
+	1) sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-i18n
+	   libwxgtk2.8-dev
+
+- IMPORTANT: setuptools is a key dependency on Python, which is required 
+for Plover, especially with respect to installation of packages using Python
+
+To properly install it (the latest version is required):
+	1) sudo pip install -U pip setuptools
+
+If pip is ALREADY installed, or an older version of setuptools:
+	1) sudo apt-get install --upgrade setuptools
+
+- lastly, Plover depends on a core dependency known as the HIDAPI library,
+which allows for communication with the USB and Bluetooth HID devices on OSes.
+
+- To install it, the following must be executed:
+	1) sudo apt-get install python-dev libusb-1.0-0-dev libudev-dev
+	2) sudo pip install hidapi (at this point, wxPython MUST be installed)
+
+When all of the prerequisites are successfully installed, download the LATEST
+Plover version from the website (you can google this), then execute:
+	1) python2 -m pip install --user plover-3.1.0-py2-none-any.whl
+
+* The Plover version number used here (3.1.0) may change as the stable-version
+updates.
+	
